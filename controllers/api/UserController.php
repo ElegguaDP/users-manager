@@ -7,6 +7,7 @@ use app\models\Users;
 use app\models\UserHashes;
 use app\models\UserPhones;
 use yii\helpers\Url;
+use yii\validators\EmailValidator;
 
 class UserController extends ApiController {
 
@@ -15,7 +16,7 @@ class UserController extends ApiController {
      */
     public function actionLogin() {
         $request = Yii::$app->request->post();
-        $validator = new yii\validators\EmailValidator();
+        $validator = new EmailValidator();
         if ($request && $request['email'] && $validator->validate($request['email'])) {
             $hash = $this->generateLink();
             $url = Url::toRoute(['hashcheck', 'hash' => $hash], true);
