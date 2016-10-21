@@ -11,6 +11,7 @@ INSTALLATION
 ------------
 
 Just ```git clone ...``` project and use included MySQL DB `users-manager.sql`
+Then ```composer update``` to install the dependencies
 
 CONFIGURATION
 -------------
