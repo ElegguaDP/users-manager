@@ -48,6 +48,7 @@ $config = [
             'enableStrictParsing' => false,
             'rules' => [
                 '<_a:(login|logout)>' => 'site/<_a>',
+                'user/<id:\d+>' => 'user/index',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<id:\d+>' => '<controller>/index',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',               
