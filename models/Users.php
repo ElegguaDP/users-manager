@@ -103,5 +103,9 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
     public static function findByEmail($email) {
         return static::findOne(['email' => $email]);
     }
+    
+    public static function findByMobileToken($token) {
+        return static::findOne(['mobile_token' => $token]);
+    }
 
 }
