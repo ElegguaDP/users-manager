@@ -1,0 +1,24 @@
+2016-10-20 21:03:25 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "".' in C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\base\Module.php:460
+Stack trace:
+#0 C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('', Array)
+#1 C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\Progs\OpenServer\domains\users-manager\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\Progs\OpenServer\domains\users-manager\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2016-10-20 21:03:35 [127.0.0.1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "".' in C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\base\Module.php:460
+Stack trace:
+#0 C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\web\Application.php(87): yii\base\Module->runAction('', Array)
+#1 C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\Progs\OpenServer\domains\users-manager\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\web\Application.php:99
+Stack trace:
+#0 C:\Progs\OpenServer\domains\users-manager\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\Progs\OpenServer\domains\users-manager\web\index.php(12): yii\base\Application->run()
+#2 {main}
