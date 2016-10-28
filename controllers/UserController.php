@@ -64,6 +64,7 @@ class UserController extends Controller {
         $phones = $model->userPhones;
         if ($model->load(Yii::$app->request->post())) {
             $image = UploadedFile::getInstance($model, 'image');
+            $oldPath = Yii::$app->params['uploadPath'] . $model->avatar;
             if($image){
                 $fname = explode(".", $image->name);
                 $extension = end($fname);
@@ -90,10 +91,7 @@ class UserController extends Controller {
             if ($valid) {
                 $transaction = \Yii::$app->db->beginTransaction();
                 try {
-                    if ($flag = $model->save(false)) {
-                        if($image){
-                            $image->saveAs($path);
-                        }
+                    if ($flag = $model->save(false)) {                        
                         if (!empty($deletedIDs)) {
                             UserPhones::deleteAll(['id' => $deletedIDs]);
                         }
@@ -107,6 +105,10 @@ class UserController extends Controller {
                     }
                     if ($flag) {
                         $transaction->commit();
+                        if($image){
+                            $image->saveAs($path);
+                            unlink($oldPath);
+                        }
                         return $this->redirect(['index', 'id' => $model->id]);
                     }
                 } catch (Exception $e) {
