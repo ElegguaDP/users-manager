@@ -34,8 +34,14 @@ class Users extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface {
     public function rules() {
         return [
             [['email'], 'required'],
+            [['email'], 'email'],
+            [['email'], 'trim'],
             [['email', 'username', 'avatar', 'mobile_token'], 'string', 'max' => 255],
             [['email', 'username', 'avatar', 'mobile_token'], 'safe'],
+            [['username', 'avatar'], 'filter', 'filter' => function ($value) {
+                $value = strip_tags($value);
+                return $value;
+            }],
             [['email'], 'unique'],
             [['avatar'], 'file', 'extensions'=>'jpg, gif, png, jpeg, bmp'],
         ];

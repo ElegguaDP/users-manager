@@ -30,8 +30,18 @@ class UserPhones extends \yii\db\ActiveRecord
     {
         return [
             [['phone'], 'required'],
-            [['user_id'], 'integer'],
+            ['phone', 'filter', 'filter' => function ($value) {
+                    $value = strip_tags($value);
+                    if($value){
+                        return $value;
+                    } else {
+                        $this->addError('phone', 'The phone is invalid!');
+                    }
+                }
+            ],
+            ['phone', 'trim'],
             [['phone'], 'string', 'max' => 255],
+            [['user_id'], 'integer'],            
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
