@@ -62,12 +62,13 @@ class UserController extends Controller {
         }
         $model = $this->findModel($id);        
         $phones = $model->userPhones;
-            
         if ($model->load(Yii::$app->request->post())) {
             $image = UploadedFile::getInstance($model, 'image');
-            $fname = explode(".", $image->name);
-            $extension = end($fname);
-            $model->avatar = Yii::$app->security->generateRandomString().".{$extension}";
+            if($image){
+                $fname = explode(".", $image->name);
+                $extension = end($fname);
+                $model->avatar = Yii::$app->security->generateRandomString().".{$extension}";
+            }
             $path = Yii::$app->params['uploadPath'] . $model->avatar;
                        
             $oldIDs = ArrayHelper::map($phones, 'id', 'id');
@@ -90,7 +91,9 @@ class UserController extends Controller {
                 $transaction = \Yii::$app->db->beginTransaction();
                 try {
                     if ($flag = $model->save(false)) {
-                        $image->saveAs($path);
+                        if($image){
+                            $image->saveAs($path);
+                        }
                         if (!empty($deletedIDs)) {
                             UserPhones::deleteAll(['id' => $deletedIDs]);
                         }
