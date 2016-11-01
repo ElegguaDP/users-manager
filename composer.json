@@ -21,10 +21,11 @@
 	"symfony/dom-crawler": "2.8",
         "symfony/css-selector": "2.8",
         "wbraganca/yii2-dynamicform": "*",
-        "kartik-v/yii2-widget-fileinput": "@dev"
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "morozovsk/yii2-websocket": "^1.0"
     },
     "require-dev": {
-        "yiisoft/yii2-codeception": "*",
+        "codeception/codeception": "*",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
         "yiisoft/yii2-faker": "*"
@@ -54,5 +55,14 @@
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packagist.org"
+        },
+        { 
+            "packagist": false 
+        }
+    ]
 }
